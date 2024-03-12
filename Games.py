@@ -2,6 +2,7 @@ import pygame as pg
 from Objects.Player import Player
 from Objects.Levels import Levels
 from Objects.Enemies import Enemy
+from Objects.Texts import Texts
 
 
 class game:
@@ -10,6 +11,7 @@ class game:
     map = Levels()
     play = Player()
     evil = Enemy()
+    txt = Texts()
 
     def __init__(self) -> None:
         pg.init()
@@ -24,17 +26,29 @@ class game:
     def ChangeLevels(self):
         if self.play.status:
             self.level += 1
-            print(self.level)
-            self.map.LevelAct(self.level)
-            self.map.Screens()
-            self.play.status = False
+            if self.level == 4:
+                self.GameWin()
+            else:
+                self.map.LevelAct(self.level)
+                self.map.Screens()
+                self.ShowText(f"Level {self.level}")
+                self.play.status = False
+
+    def GameWin(self):
+        self.ShowText("¡¡¡ WIN !!!")
+        self.running = False
 
     def GameOver(self):
         if self.play.kill or self.evil.kill:
+            self.ShowText("Game Mover")
             self.running = False
-            print("GameOver")
-            print(f"Player kill? {self.play.kill}")
-            print(f"Enemy kill? {self.evil.kill}")
+
+    def ShowText(self, txt: str):
+        self.map.screen.fill((255, 255, 255))
+        self.txt.showText(txt)
+        self.map.screen.blit(self.txt.sendText(), self.txt.sendTextReact())
+        pg.display.flip()
+        pg.time.wait(2000)
 
     def Events(self):
         for event in pg.event.get():

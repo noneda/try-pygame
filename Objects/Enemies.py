@@ -42,7 +42,6 @@ class Enemy(Npcs):
             if self.kill:
                 map[y][x] = 0
                 map[save[0]][save[1]]
-                print("Atrapado")
 
             elif valid_moves:
                 new_direction = rnd.choice(valid_moves)

@@ -208,7 +208,6 @@ def show_victory_screen():
 def main():
     global running
     running = True
-
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
