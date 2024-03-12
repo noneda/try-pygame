@@ -185,3 +185,71 @@ graph TD;
     Q --> R
     C -->|No| F
 ```
+# Diagrama de Clases
+```mermaid
+classDiagram
+    class Map{
+        -sizeCel: int
+        -map: list[list[int]]
+        +Screens(): None
+        +sendPost(a: int): tuple
+        +sendAllPos(id: int): list[tuple]
+        +sendMiniMap(a: tuple): list[list[int]]
+        +sendMiniMaps(poss: list[tuple]): list[list[list[int]]]
+        +UpdateMap(mini_map: list[list[int]], pos: tuple): None
+        +UpdateMaps(mini_maps: list[list[list[int]]], poss: list[tuple[int, int]]): None
+        +ShowMap(): None
+    }
+    class Npcs{
+        -id: int
+        -mid: int
+        -kill: bool
+        -minMap: list[list[int]]
+        -minMaps: list[list[list[int]]]
+        -posicion: tuple[int, int]
+        -posiciones: list[tuple[int, int]]  
+        +Movimiento(): list
+        +getMiniMap(mnmap: list[list[int]]): None
+        +getMiniMaps(nmaps: list[list[list[int]]]): None
+        +getPos(pos: tuple[int, int]): None
+        +getPoss(poss: list[tuple[int, int]]): None
+    }
+    class Enemy{
+        -id: int
+        -kill: bool
+        -mid: int
+        +Movimiento(): list[list[list[int]]]
+    }
+    class Player{
+        -id: int
+        -status: bool
+        -kill: bool
+        -mid: int
+        +getKey(key): None
+        +Coliciones(y: int, x: int): None
+        +Movimiento(): list[list[int]]
+    }
+    class Texts{
+        -font: None
+        -text: None
+        -text_react: None
+        +sendText(): None
+        +sendTextReact(): None
+        +showText(txt: str): None
+    }
+    class Levels{
+        -sizeCel: int
+        -level: int
+        -nameLevel: str
+        -test: list[list[int]]
+        -map1: list[list[int]]
+        -map2: list[list[int]]
+        -map3: list[list[int]]
+        +LevelAct(level: int): None
+    }
+    Map <-- Npcs
+    Npcs <-- Enemy
+    Npcs <-- Player
+    Map <-- Levels
+    Texts <-- Map
+```
