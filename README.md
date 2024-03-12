@@ -323,12 +323,13 @@ erDiagram
         text_react TEXT
         game_id INT (FK)
     }
-    GAME ||--o{ LEVELS : has
-    LEVELS ||--o{ MAP : contains
-    MAP ||--o{ NPCS : contains
-    MAP ||--o{ ENEMY : contains
-    PLAYER ||--|{ MAP : interacts with
-    PLAYER ||--|{ TEXTS : interacts with
-    GAME ||--|{ TEXTS : has
+
+    GAME ||--o{ LEVELS
+    LEVELS ||--o{ MAP
+    MAP ||--o{ NPCS
+    MAP ||--o{ ENEMY
+    PLAYER ||--|{ MAP
+    PLAYER ||--|{ TEXTS
+    GAME ||--|{ TEXTS
 ```
-#Other ...
+# Other ...
