@@ -277,3 +277,57 @@ classDiagram
     main --> Game
 
 ```
+# Diagrama Entidad Relacion
+```mermaid
+erDiagram
+    GAME {
+        id INT (PK)
+        running BOOL
+        level INT
+    }
+    LEVELS {
+        id INT (PK)
+        level_number INT
+        name VARCHAR
+        game_id INT (FK)
+    }
+    MAP {
+        id INT (PK)
+        sizeCel INT
+        map_data TEXT
+        levels_id INT (FK)
+    }
+    NPCS {
+        id INT (PK)
+        mid INT
+        kill BOOL
+        map_id INT (FK)
+    }
+    ENEMY {
+        id INT (PK)
+        kill BOOL
+        mid INT
+        npc_id INT (FK)
+    }
+    PLAYER {
+        id INT (PK)
+        status BOOL
+        kill BOOL
+        mid INT
+        map_id INT (FK)
+    }
+    TEXTS {
+        id INT (PK)
+        font TEXT
+        text TEXT
+        text_react TEXT
+        game_id INT (FK)
+    }
+    GAME ||--o{ LEVELS : has
+    LEVELS ||--o{ MAP : contains
+    MAP ||--o{ NPCS : contains
+    MAP ||--o{ ENEMY : contains
+    PLAYER ||--|{ MAP : interacts with
+    PLAYER ||--|{ TEXTS : interacts with
+    GAME ||--|{ TEXTS : has
+```
