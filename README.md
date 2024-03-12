@@ -57,7 +57,7 @@ El juego comienza en el archivo `main.py`, donde se instancia la clase `Game` pa
 
 Este documento proporciona una visión general del código del juego, incluyendo su estructura, las clases principales y su funcionamiento. Esperamos que esta documentación ayude a comprender y mantener el código del juego de manera efectiva.
 
-# Diagrama de Clases
+# Clases
 
 ## Clase: Map
 - Atributos:
@@ -158,3 +158,30 @@ Este documento proporciona una visión general del código del juego, incluyendo
 ## Clase: main
 - Métodos:
   - main() -> None
+
+# Diagrama de Flujo 
+
+```mermaid
+graph TD;
+    A[Inicio] --> B(Instanciar Game)
+    B --> C{¿Juego en ejecución?}
+    C -->|Sí| D[Verificar eventos]
+    D --> E{¿Evento de salida?}
+    E -->|Sí| F[Detener juego]
+    E -->|No| G{¿Evento de teclado?}
+    G -->|Sí| H[Procesar entrada de teclado]
+    H --> I{¿Cambio de nivel?}
+    I -->|Sí| J[Actualizar nivel]
+    I -->|No| K{¿Movimiento del jugador?}
+    K -->|Sí| L[Actualizar posición del jugador]
+    K -->|No| D
+    L --> M{¿Colisión con obstáculo?}
+    M -->|Sí| N[Revertir movimiento]
+    M -->|No| O{¿Colisión con enemigo?}
+    O -->|Sí| P[Mostrar mensaje de derrota]
+    O -->|No| Q{¿Objetivo alcanzado?}
+    Q -->|Sí| R[Mostrar mensaje de victoria]
+    Q -->|No| D
+    Q --> R
+    C -->|No| F
+```
