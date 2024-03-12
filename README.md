@@ -247,9 +247,33 @@ classDiagram
         -map3: list[list[int]]
         +LevelAct(level: int): None
     }
+    class Game{
+        -running: bool
+        -level: int
+        -map: Levels
+        -play: Player
+        -evil: Enemy
+        -txt: Texts
+        +__init__(): None
+        +ChangeLevels(): None
+        +GameWin(): None
+        +GameOver(): None
+        +ShowText(txt: str): None
+        +Events(): None
+    }
+    class main{
+        __init__()
+    }
     Map <-- Npcs
     Npcs <-- Enemy
     Npcs <-- Player
     Map <-- Levels
     Texts <-- Map
+    Game --> Map
+    Game --> Npcs
+    Game --> Player
+    Game --> Enemy
+    Game --> Texts
+    main --> Game
+
 ```
