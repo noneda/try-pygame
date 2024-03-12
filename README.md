@@ -331,3 +331,4 @@ erDiagram
     PLAYER ||--|{ TEXTS : interacts with
     GAME ||--|{ TEXTS : has
 ```
+#Other ...
