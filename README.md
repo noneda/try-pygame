@@ -271,7 +271,6 @@ classDiagram
     Map .. Levels
     Texts o-- Map
     Game --> Levels
-    Game --> Npcs
     Game --> Player
     Game --> Enemy
     Game --> Texts
