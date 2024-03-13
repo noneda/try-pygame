@@ -158,6 +158,68 @@ This document provides an overview of the game code, including its structure, ma
 ## Class: main
 - Methods:
   - main() -> None
+# Data Dictionary
+
+Here's a more detailed data dictionary covering all variables and relationships present in it code:
+
+### Classes:
+
+1. **Map**:
+   - `sizeCel`: An integer representing the size of each cell in the map.
+   - `map`: A list of lists of integers representing the map layout.
+
+2. **Npcs**:
+   - `id`: An integer representing the NPC's identifier.
+   - `mid`: An integer representing the NPC's middle identifier.
+   - `kill`: A boolean indicating if the NPC has killed the player.
+   - `minMap`: A list of lists of integers representing the mini-map around the NPC.
+   - `minMaps`: A list of lists of lists of integers representing a list of mini-maps around the NPC.
+   - `posicion`: A tuple of integers representing the NPC's position on the map.
+   - `posiciones`: A list of tuples of integers representing a list of positions of the NPC on the map.
+
+3. **Enemy** (inherits from Npcs):
+   - `id`: An integer representing the enemy's identifier.
+   - `kill`: A boolean indicating if the enemy has killed the player.
+   - `mid`: An integer representing the enemy's middle identifier.
+
+4. **Levels** (inherits from Map):
+   - `sizeCel`: An integer representing the size of each cell in the level.
+   - `level`: An integer representing the current level of the game.
+   - `nameLevel`: A string representing the name of the level.
+   - `test`: A list of lists of integers representing a test level design.
+   - `map1`, `map2`, `map3`: Lists of lists of integers representing different level designs.
+
+5. **Player** (inherits from Npcs):
+   - `id`: An integer representing the player's identifier.
+   - `status`: A boolean indicating if the player is alive or dead.
+   - `kill`: A boolean indicating if the player has killed the enemy.
+   - `mid`: An integer representing the player's middle identifier.
+   - `key`: An integer representing the key pressed by the player.
+
+6. **Texts**:
+   - `font`: An object representing the text font.
+   - `text`: An object representing the text to display on the screen.
+   - `text_react`: An object representing the position of the text on the screen.
+
+7. **game**:
+   - `running`: A boolean indicating if the game is running.
+   - `level`: An integer representing the current level of the game.
+   - `map`: An instance of the Map class representing the game map.
+   - `play`: An instance of the Player class representing the player.
+   - `evil`: An instance of the Enemy class representing the enemy.
+   - `txt`: An instance of the Texts class managing text displayed on the screen.
+
+### Global Variables and Constants:
+
+- `main.py`: The main file of the game.
+
+### Relationships:
+
+- `Enemy` and `Player` inherit from `Npcs`.
+- `Levels` inherits from `Map`.
+- `game` has instances of `Map`, `Player`, `Enemy`, and `Texts`.
+- `Player` and `Enemy` interact with `Map`.
+- `game` interacts with `Levels` and `Texts`.
 
 # Flowchart 
 
