@@ -265,17 +265,17 @@ classDiagram
     class main{
         __init__()
     }
-    Map <-- Npcs
-    Npcs <-- Enemy
-    Npcs <-- Player
-    Map <-- Levels
-    Texts <-- Map
+    Map o-- Npcs
+    Npcs .. Enemy
+    Npcs .. Player
+    Map .. Levels
+    Texts o-- Map
     Game --> Map
     Game --> Npcs
     Game --> Player
     Game --> Enemy
     Game --> Texts
-    main --> Game
+    main ..> Game
 
 ```
 # Entity Relationship Diagram
@@ -295,7 +295,7 @@ erDiagram
         string name 
         int game_id FK
     }
-    MAP ||--o{ NPCS : contains
+    MAP |o--|{ NPCS : contains
     MAP {
         int id PK
         int sizeCel 
