@@ -328,6 +328,46 @@ erDiagram
         int game_id FK
     }
 ```
+# diagram of sequence
+```mermaid
+sequenceDiagram
+    participant Player
+    participant game
+    participant Map
+    participant Levels
+    participant Enemy
+    participant Texts
+
+    Player->>game: getKey(key)
+    loop Movimiento del jugador
+        game->>Player: Movimiento()
+        Player->>Map: sendPost(id)
+        Map-->>Player: Posición actual
+        Player->>Map: sendMiniMap(posicion)
+        Map-->>Player: Mini mapa alrededor del jugador
+        Player->>Map: UpdateMap(mini_map, pos)
+    end
+    Player->>game: getPos(pos)
+    Player->>game: getMiniMap(mini_map)
+    Player->>Map: UpdateMap(mini_map, pos)
+    loop Movimiento del enemigo
+        game->>Enemy: getPoss()
+        Enemy->>Map: sendAllPos(id)
+        Map-->>Enemy: Lista de posiciones de enemigos
+        Enemy->>Map: sendMiniMaps(poss)
+        Map-->>Enemy: Lista de mini mapas alrededor de los enemigos
+        Enemy->>Map: UpdateMaps(mini_maps, poss)
+    end
+    game->>Texts: showText(txt)
+    loop Cambio de nivel
+        game->>Levels: LevelAct(level)
+        Levels->>Map: Mapa del nuevo nivel
+        Map-->>game: Mapa actualizado
+        game->>Map: Screens()
+    end
+
+```
+
 # More...
 ## How to Play
 
