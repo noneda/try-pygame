@@ -270,7 +270,7 @@ classDiagram
     Npcs .. Player
     Map .. Levels
     Texts o-- Map
-    Game --> Map
+    Game --> Levels
     Game --> Npcs
     Game --> Player
     Game --> Enemy
