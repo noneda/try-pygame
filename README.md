@@ -401,30 +401,30 @@ sequenceDiagram
     participant Texts
 
     Player->>game: getKey(key)
-    loop Movimiento del jugador
+    loop Player Movement
         game->>Player: Movimiento()
         Player->>Map: sendPost(id)
-        Map-->>Player: Posición actual
-        Player->>Map: sendMiniMap(posicion)
-        Map-->>Player: Mini mapa alrededor del jugador
+        Map-->>Player: Current Position
+        Player->>Map: sendMiniMap(position)
+        Map-->>Player: Mini-map around the player
         Player->>Map: UpdateMap(mini_map, pos)
     end
     Player->>game: getPos(pos)
     Player->>game: getMiniMap(mini_map)
     Player->>Map: UpdateMap(mini_map, pos)
-    loop Movimiento del enemigo
+    loop Enemy Movement
         game->>Enemy: getPoss()
         Enemy->>Map: sendAllPos(id)
-        Map-->>Enemy: Lista de posiciones de enemigos
+        Map-->>Enemy: List of enemy positions
         Enemy->>Map: sendMiniMaps(poss)
-        Map-->>Enemy: Lista de mini mapas alrededor de los enemigos
+        Map-->>Enemy: List of mini-maps around enemies
         Enemy->>Map: UpdateMaps(mini_maps, poss)
     end
     game->>Texts: showText(txt)
-    loop Cambio de nivel
+    loop Level Change
         game->>Levels: LevelAct(level)
-        Levels->>Map: Mapa del nuevo nivel
-        Map-->>game: Mapa actualizado
+        Levels->>Map: Map of the new level
+        Map-->>game: Updated map
         game->>Map: Screens()
     end
 
