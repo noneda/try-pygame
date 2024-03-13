@@ -280,60 +280,17 @@ classDiagram
 # Diagrama Entidad Relacion
 ```mermaid
 erDiagram
-    JUEGO {
-        id INT PK
-        ejecutando BOOL
-        nivel INT
+    GAME ||--o{ LEVELS : contains
+    GAME {
+        int id PK
+        bool running
+        int level
     }
-    JUEGO ||--o{ NIVELES : contiene
-
-    NIVELES {
-        id INT (PK)
-        número_de_nivel INT
-        nombre VARCHAR
-        juego_id INT FK
+    LEVELS {
+        int id PK
+        int level_number 
+        string name 
+        int game_id FK
     }
-    NIVELES ||--o{ MAPA : contiene
-
-    MAPA {
-        id INT PK
-        tamaño_celda INT
-        datos_mapa TEXT
-        niveles_id INT FK
-    }
-    MAPA ||--o{ NPCS : contiene
-    MAPA ||--o{ ENEMIGO : contiene
-
-    NPCS {
-        id INT PK
-        mid INT
-        matar BOOL
-        mapa_id INT FK
-    }
-    ENEMIGO {
-        id INT PK
-        matar BOOL
-        mid INT
-        npc_id INT FK
-    }
-    JUGADOR ||--|{ MAPA : ubicado_en
-    JUGADOR ||--|{ TEXTOS : interactúa_con
-    JUEGO ||--|{ TEXTOS : contiene
-
-    JUGADOR {
-        id INT PK
-        estado BOOL
-        matar BOOL
-        mid INT
-        mapa_id INT FK
-    }
-    TEXTOS {
-        id INT PK
-        fuente TEXT
-        texto TEXT
-        reaccion_texto TEXT
-        juego_id INT FK
-    }
-  
 ```
 # Other ...
