@@ -297,7 +297,7 @@ erDiagram
     MAP ||--o{ NPCS : contains
     MAP ||--o{ ENEMY : contains
     MAP {
-        intid PK
+        int id PK
         int sizeCel 
         string map_data 
         int levels_id FK
