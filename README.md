@@ -280,25 +280,60 @@ classDiagram
 # Diagrama Entidad Relacion
 ```mermaid
 erDiagram
-    CAR ||--o{ NAMED-DRIVER : allows
-    CAR {
-        string registrationNumber PK
-        string make
-        string model
-        string[] parts
+    JUEGO {
+        id INT PK
+        ejecutando BOOL
+        nivel INT
     }
-    PERSON ||--o{ NAMED-DRIVER : is
-    PERSON {
-        string driversLicense PK "The license #"
-        string(99) firstName "Only 99 characters are allowed"
-        string lastName
-        string phone UK
-        int age
+    JUEGO ||--o{ NIVELES : contiene
+
+    NIVELES {
+        id INT (PK)
+        número_de_nivel INT
+        nombre VARCHAR
+        juego_id INT FK
     }
-    NAMED-DRIVER {
-        string carRegistrationNumber PK, FK
-        string driverLicence PK, FK
+    NIVELES ||--o{ MAPA : contiene
+
+    MAPA {
+        id INT PK
+        tamaño_celda INT
+        datos_mapa TEXT
+        niveles_id INT FK
     }
-    MANUFACTURER only one to zero or more CAR : makes
+    MAPA ||--o{ NPCS : contiene
+    MAPA ||--o{ ENEMIGO : contiene
+
+    NPCS {
+        id INT PK
+        mid INT
+        matar BOOL
+        mapa_id INT FK
+    }
+    ENEMIGO {
+        id INT PK
+        matar BOOL
+        mid INT
+        npc_id INT FK
+    }
+    JUGADOR ||--|{ MAPA : ubicado_en
+    JUGADOR ||--|{ TEXTOS : interactúa_con
+    JUEGO ||--|{ TEXTOS : contiene
+
+    JUGADOR {
+        id INT PK
+        estado BOOL
+        matar BOOL
+        mid INT
+        mapa_id INT FK
+    }
+    TEXTOS {
+        id INT PK
+        fuente TEXT
+        texto TEXT
+        reaccion_texto TEXT
+        juego_id INT FK
+    }
+  
 ```
 # Other ...
