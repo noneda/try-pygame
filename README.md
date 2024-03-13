@@ -295,7 +295,6 @@ erDiagram
         int game_id FK
     }
     MAP ||--o{ NPCS : contains
-    MAP ||--o{ ENEMY : contains
     MAP {
         int id PK
         int sizeCel 
