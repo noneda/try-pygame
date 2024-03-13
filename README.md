@@ -328,4 +328,40 @@ erDiagram
         int game_id FK
     }
 ```
-# Other ...
+# More...
+## How to Play
+
+Welcome to the game! Here's a quick guide to get started:
+
+### 1. Installation and Setup
+
+Before getting started, make sure you have Python installed on your system. Then, download the game code from the corresponding repository.
+
+### 2. Running the Game
+
+Open a terminal in the directory where the `main.py` file is located and execute the following command:
+
+```bash
+python main.py
+```
+
+## Objective of the Game
+
+The objective of the game is to complete all levels without being defeated by the enemies. Each level presents unique challenges that the player must overcome.
+
+## Character Movement
+
+The player can move around the map using the following keys:
+
+- **W**: Move upwards.
+- **A**: Move to the left.
+- **S**: Move downwards.
+- **D**: Move to the right.
+
+The player should use these keys to avoid enemies and solve puzzles in each level.
+
+## Game Completion
+
+To complete the game, the player must progress through all levels successfully. However, if the player is caught by an enemy or finds themselves in a dead-end situation, the game ends and they will have to start from the beginning.
+
+Good luck and have fun!
