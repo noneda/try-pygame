@@ -7,7 +7,7 @@ from Objects.Texts import Texts
 
 class game:
     running = True
-    level = 0
+    level = 2
     map = Levels()
     play = Player()
     evil = Enemy()
@@ -15,6 +15,7 @@ class game:
 
     def __init__(self) -> None:
         pg.init()
+        pg.mixer.init()
         while self.running:
             self.ChangeLevels()
             self.Events()
@@ -29,17 +30,23 @@ class game:
             if self.level == 4:
                 self.GameWin()
             else:
+                sound = pg.mixer.Sound("./Medias/Pass.mp3")
+                sound.play()
                 self.map.LevelAct(self.level)
                 self.map.Screens()
                 self.ShowText(f"Level {self.level}")
                 self.play.status = False
 
     def GameWin(self):
+        sound = pg.mixer.Sound("./Medias/Win.mp3")
+        sound.play()
         self.ShowText("¡¡¡ WIN !!!")
         self.running = False
 
     def GameOver(self):
         if self.play.kill or self.evil.kill:
+            sound = pg.mixer.Sound("./Medias/Dead.wav")
+            sound.play()
             self.ShowText("Game Mover")
             self.running = False
 

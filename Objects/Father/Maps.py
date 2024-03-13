@@ -56,6 +56,10 @@ class Map:
             self.UpdateMap(mini_map, pos)
 
     def ShowMap(self):
+        a = pg.image.load('./Medias/DownE.jpg')
+        Enemy = pg.transform.scale(a, (self.sizeCel - 25, self.sizeCel - 25))
+        b = pg.image.load('./Medias/DownP.jpg')
+        Player = pg.transform.scale(b, (self.sizeCel - 25, self.sizeCel - 25))
         for row in range(len(self.map)):
             for col in range(len(self.map[1])):
                 if self.map[row][col] == 1:
@@ -71,16 +75,7 @@ class Map:
                     )
 
                 elif self.map[row][col] == 2:
-                    pg.draw.rect(
-                        self.screen,
-                        (218, 247, 166),
-                        (
-                            col * self.sizeCel + 12.5,
-                            row * self.sizeCel + 12.5,
-                            self.sizeCel - 25,
-                            self.sizeCel - 25,
-                        ),
-                    )
+                    self.screen.blit(Player, (col * self.sizeCel + 12.5, row * self.sizeCel + 12.5))
 
                 elif self.map[row][col] == 3:
                     pg.draw.rect(
@@ -95,13 +90,4 @@ class Map:
                     )
 
                 elif self.map[row][col] == 4:
-                    pg.draw.rect(
-                        self.screen,
-                        (199, 0, 57),
-                        (
-                            col * self.sizeCel + 12.5,
-                            row * self.sizeCel + 12.5,
-                            self.sizeCel - 25,
-                            self.sizeCel - 25,
-                        ),
-                    )
+                     self.screen.blit(Enemy, (col * self.sizeCel + 12.5, row * self.sizeCel + 12.5))
