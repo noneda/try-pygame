@@ -1,71 +1,71 @@
-# Documentación del Código
+# Code Documentation
 
-## Introducción
+## Introduction
 
-Este documento proporciona una visión general del código de un juego implementado en Python utilizando la biblioteca Pygame. El juego consiste en un entorno de laberinto donde el jugador debe navegar a través de niveles, evitando enemigos y obstáculos, para alcanzar el objetivo final. Se explicarán las clases principales, sus métodos y relaciones, así como su funcionamiento en conjunto para crear la experiencia de juego.
+This document provides an overview of the code for a game implemented in Python using the Pygame library. The game consists of a maze environment where the player must navigate through levels, avoiding enemies and obstacles, to reach the final goal. The main classes, their methods, and relationships will be explained, as well as how they work together to create the gaming experience.
 
-## Estructura del Código
+## Code Structure
 
-El código está organizado en varios archivos, cada uno con una función específica. Aquí está la estructura del proyecto:
+The code is organized into several files, each with a specific function. Here's the project structure:
 
-- **Objects**: Directorio que contiene las clases principales del juego.
-  - **Father**: Subdirectorio que contiene la clase base `Npcs`.
-  - `Maps.py`: Definición de la clase `Map` para gestionar el mapa del juego.
-  - `Npcs.py`: Definición de la clase `Npcs` para representar a los personajes no jugadores.
-  - `Enemies.py`: Definición de la clase `Enemy`, una subclase de `Npcs`, para representar a los enemigos del juego.
-  - `Levels.py`: Definición de la clase `Levels`, una subclase de `Map`, para gestionar los niveles del juego.
-  - `Player.py`: Definición de la clase `Player`, una subclase de `Npcs`, para representar al jugador.
-  - `Texts.py`: Definición de la clase `Texts` para gestionar la visualización de texto en el juego.
-- `Games.py`: Implementación del bucle principal del juego y la lógica de juego.
-- `main.py`: Punto de entrada del juego.
+- **Objects**: Directory containing the main classes of the game.
+  - **Father**: Subdirectory containing the base class `Npcs`.
+  - `Maps.py`: Definition of the `Map` class to manage the game map.
+  - `Npcs.py`: Definition of the `Npcs` class to represent non-player characters.
+  - `Enemies.py`: Definition of the `Enemy` class, a subclass of `Npcs`, to represent game enemies.
+  - `Levels.py`: Definition of the `Levels` class, a subclass of `Map`, to manage game levels.
+  - `Player.py`: Definition of the `Player` class, a subclass of `Npcs`, to represent the player.
+  - `Texts.py`: Definition of the `Texts` class to manage text display in the game.
+- `Games.py`: Implementation of the main game loop and game logic.
+- `main.py`: Entry point of the game.
 
-## Clases Principales
+## Main Classes
 
 ### `Map`
 
-La clase `Map` gestiona el mapa del juego. Contiene métodos para crear la pantalla del juego, enviar posiciones, mostrar el mapa y actualizar el mapa según las acciones del jugador y los enemigos.
+The `Map` class manages the game map. It contains methods to create the game screen, send positions, display the map, and update the map based on player and enemy actions.
 
 ### `Npcs`
 
-La clase `Npcs` representa a los personajes no jugadores en el juego. Contiene atributos y métodos comunes para todos los personajes no jugadores, como identificación, posición y movimientos.
+The `Npcs` class represents non-player characters in the game. It contains attributes and methods common to all non-player characters, such as identification, position, and movements.
 
 ### `Enemy`
 
-La clase `Enemy` es una subclase de `Npcs` y representa a los enemigos del juego. Contiene lógica para el movimiento de los enemigos y su interacción con el jugador.
+The `Enemy` class is a subclass of `Npcs` and represents enemies in the game. It contains logic for enemy movement and interaction with the player.
 
 ### `Levels`
 
-La clase `Levels` es una subclase de `Map` y gestiona los niveles del juego. Contiene diferentes mapas para cada nivel y métodos para cambiar entre niveles.
+The `Levels` class is a subclass of `Map` and manages game levels. It contains different maps for each level and methods to switch between levels.
 
 ### `Player`
 
-La clase `Player` es una subclase de `Npcs` y representa al jugador en el juego. Contiene lógica para el movimiento del jugador y su interacción con el entorno del juego.
+The `Player` class is a subclass of `Npcs` and represents the player in the game. It contains logic for player movement and interaction with the game environment.
 
 ### `Texts`
 
-La clase `Texts` gestiona la visualización de texto en el juego. Proporciona métodos para mostrar texto en la pantalla del juego.
+The `Texts` class manages text display in the game. It provides methods to display text on the game screen.
 
 ### `Game`
 
-La clase `Game` implementa el bucle principal del juego y la lógica de juego. Gestiona la ejecución del juego, incluido el cambio de niveles y la detección de fin de juego.
+The `Game` class implements the main game loop and game logic. It manages the execution of the game, including level changes and game state detection.
 
-## Funcionamiento del Juego
+## Game Operation
 
-El juego comienza en el archivo `main.py`, donde se instancia la clase `Game` para iniciar el juego. El bucle principal del juego se encuentra en `Games.py`, donde se gestionan los eventos del juego, se actualiza la pantalla y se verifica el estado del juego. El jugador puede moverse con las teclas direccionales y debe evitar a los enemigos y obstáculos para llegar al final del nivel. El juego termina cuando el jugador completa todos los niveles o pierde al ser atrapado por un enemigo.
+The game starts in the `main.py` file, where the `Game` class is instantiated to start the game. The main game loop is located in `Games.py`, where game events are handled, the screen is updated, and the game state is checked. The player can move using the arrow keys and must avoid enemies and obstacles to reach the end of the level. The game ends when the player completes all levels or loses by being caught by an enemy.
 
-## Conclusiones
+## Conclusions
 
-Este documento proporciona una visión general del código del juego, incluyendo su estructura, las clases principales y su funcionamiento. Esperamos que esta documentación ayude a comprender y mantener el código del juego de manera efectiva.
+This document provides an overview of the game code, including its structure, main classes, and operation. We hope this documentation helps understand and maintain the game code effectively.
 
-# Clases
+# Classes
 
-## Clase: Map
-- Atributos:
+## Class: Map
+- Attributes:
   - sizeCel: int
   - map: list[list[int]]
   - screen: pygame.Surface
 
-- Métodos:
+- Methods:
   - Screens() -> None
   - sendPost(a: int) -> tuple
   - sendAllPos(id: int) -> list[tuple]
@@ -75,34 +75,34 @@ Este documento proporciona una visión general del código del juego, incluyendo
   - UpdateMaps(mini_maps: list[list[list[int]]], poss: list[tuple[int, int]]) -> None
   - ShowMap() -> None
 
-## Clase: Npcs
-- Atributos:
+## Class: Npcs
+- Attributes:
   - id: int
   - mid: int
   - kill: bool
   - minMap: list[list[int]]
   - minMaps: list[list[list[int]]]
-  - posicion: tuple[int, int]
-  - posiciones: list[tuple[int, int]]
+  - position: tuple[int, int]
+  - positions: list[tuple[int, int]]
 
-- Métodos:
-  - Movimiento() -> list
+- Methods:
+  - Movement() -> list
   - getMiniMap(mnmap: list[list[int]]) -> None
   - getMiniMaps(nmaps: list[list[list[int]]]) -> None
   - getPos(pos: tuple[int, int]) -> None
   - getPoss(poss: list[tuple[int, int]]) -> None
 
-## Clase: Enemy (hereda de Npcs)
-- Atributos:
+## Class: Enemy (inherits from Npcs)
+- Attributes:
   - id: int
   - kill: bool
   - mid: int
 
-- Métodos:
-  - Movimiento() -> list[list[list[int]]]
+- Methods:
+  - Movement() -> list[list[list[int]]]
 
-## Clase: Levels (hereda de Map)
-- Atributos:
+## Class: Levels (inherits from Map)
+- Attributes:
   - sizeCel: int
   - level: int
   - nameLevel: str
@@ -111,35 +111,35 @@ Este documento proporciona una visión general del código del juego, incluyendo
   - map2: list[list[int]]
   - map3: list[list[int]]
 
-- Métodos:
+- Methods:
   - LevelAct(level: int) -> None
 
-## Clase: Player (hereda de Npcs)
-- Atributos:
+## Class: Player (inherits from Npcs)
+- Attributes:
   - id: int
   - status: bool
   - kill: bool
   - mid: int
   - key: int
 
-- Métodos:
+- Methods:
   - getKey(key: int) -> None
-  - Coliciones(y: int, x: int) -> None
-  - Movimiento() -> list[list[int]]
+  - Colisions(y: int, x: int) -> None
+  - Movement() -> list[list[int]]
 
-## Clase: Texts
-- Atributos:
+## Class: Texts
+- Attributes:
   - font: pygame.Font
   - text: pygame.Surface
   - text_react: pygame.Rect
 
-- Métodos:
+- Methods:
   - sendText() -> pygame.Surface
   - sendTextReact() -> pygame.Rect
   - showText(txt: str) -> None
 
-## Clase: Game
-- Atributos:
+## Class: Game
+- Attributes:
   - running: bool
   - level: int
   - map: Levels
@@ -147,7 +147,7 @@ Este documento proporciona una visión general del código del juego, incluyendo
   - evil: Enemy
   - txt: Texts
 
-- Métodos:
+- Methods:
   - __init__() -> None
   - ChangeLevels() -> None
   - GameWin() -> None
@@ -155,37 +155,38 @@ Este documento proporciona una visión general del código del juego, incluyendo
   - ShowText(txt: str) -> None
   - Events() -> None
 
-## Clase: main
-- Métodos:
+## Class: main
+- Methods:
   - main() -> None
 
-# Diagrama de Flujo 
+# Flowchart 
 
 ```mermaid
 graph TD;
-    A[Inicio] --> B(Instanciar Game)
-    B --> C{¿Juego en ejecución?}
-    C -->|Sí| D[Verificar eventos]
-    D --> E{¿Evento de salida?}
-    E -->|Sí| F[Detener juego]
-    E -->|No| G{¿Evento de teclado?}
-    G -->|Sí| H[Procesar entrada de teclado]
-    H --> I{¿Cambio de nivel?}
-    I -->|Sí| J[Actualizar nivel]
-    I -->|No| K{¿Movimiento del jugador?}
-    K -->|Sí| L[Actualizar posición del jugador]
+    A[Start] --> B(Instantiate Game)
+    B --> C{Is Game Running?}
+    C -->|Yes| D[Check Events]
+    D --> E{Exit Event?}
+    E -->|Yes| F[Stop Game]
+    E -->|No| G{Keyboard Event?}
+    G -->|Yes| H[Process Keyboard Input]
+    H --> I{Level Change?}
+    I -->|Yes| J[Update Level]
+    I -->|No| K{Player Movement?}
+    K -->|Yes| L[Update Player Position]
     K -->|No| D
-    L --> M{¿Colisión con obstáculo?}
-    M -->|Sí| N[Revertir movimiento]
-    M -->|No| O{¿Colisión con enemigo?}
-    O -->|Sí| P[Mostrar mensaje de derrota]
-    O -->|No| Q{¿Objetivo alcanzado?}
-    Q -->|Sí| R[Mostrar mensaje de victoria]
+    L --> M{Collision with Obstacle?}
+    M -->|Yes| N[Revert Movement]
+    M -->|No| O{Collision with Enemy?}
+    O -->|Yes| P[Display Defeat Message]
+    O -->|No| Q{Objective Reached?}
+    Q -->|Yes| R[Display Victory Message]
     Q -->|No| D
     Q --> R
     C -->|No| F
 ```
-# Diagrama de Clases
+
+# Class Diagram
 ```mermaid
 classDiagram
     class Map{
@@ -277,7 +278,7 @@ classDiagram
     main --> Game
 
 ```
-# Diagrama Entidad Relacion
+# Entity Relationship Diagram
 ```mermaid
 erDiagram
     GAME ||--o{ LEVELS : contains
