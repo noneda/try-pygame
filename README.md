@@ -269,7 +269,6 @@ classDiagram
     Npcs .. Enemy
     Npcs .. Player
     Map .. Levels
-    Texts o-- Map
     Game --> Levels
     Game --> Player
     Game --> Enemy
