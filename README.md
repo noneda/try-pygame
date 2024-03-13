@@ -280,57 +280,25 @@ classDiagram
 # Diagrama Entidad Relacion
 ```mermaid
 erDiagram
-    GAME {
-        id INT PK
-        running BOOL
-        level INT
+    CAR ||--o{ NAMED-DRIVER : allows
+    CAR {
+        string registrationNumber PK
+        string make
+        string model
+        string[] parts
     }
-    LEVELS {
-        id INT (PK)
-        level_number INT
-        name VARCHAR
-        game_id INT FK
+    PERSON ||--o{ NAMED-DRIVER : is
+    PERSON {
+        string driversLicense PK "The license #"
+        string(99) firstName "Only 99 characters are allowed"
+        string lastName
+        string phone UK
+        int age
     }
-    MAP {
-        id INT PK
-        sizeCel INT
-        map_data TEXT
-        levels_id INT FK
+    NAMED-DRIVER {
+        string carRegistrationNumber PK, FK
+        string driverLicence PK, FK
     }
-    NPCS {
-        id INT PK
-        mid INT
-        kill BOOL
-        map_id INT FK
-    }
-    ENEMY {
-        id INT PK
-        kill BOOL
-        mid INT
-        npc_id INT FK
-    }
-    PLAYER {
-        id INT PK
-        status BOOL
-        kill BOOL
-        mid INT
-        map_id INT FK
-    }
-    TEXTS {
-        id INT PK
-        font TEXT
-        text TEXT
-        text_react TEXT
-        game_id INT FK
-    }
-
-    GAME ||--o{ LEVELS : contains
-    LEVELS ||--o{ MAP : contains
-    MAP ||--o{ NPCS : contains
-    MAP ||--o{ ENEMY : contains
-    PLAYER ||--|{ MAP : located_in
-    PLAYER ||--|{ TEXTS : interacts_with
-    GAME ||--|{ TEXTS : contains
-
+    MANUFACTURER only one to zero or more CAR : makes
 ```
 # Other ...
