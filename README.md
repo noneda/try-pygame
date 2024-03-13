@@ -281,15 +281,52 @@ classDiagram
 ```mermaid
 erDiagram
     GAME ||--o{ LEVELS : contains
+    GAME ||--|{ TEXTS : contains
     GAME {
         int id PK
         bool running
         int level
     }
+    LEVELS ||--o{ MAP : contains
     LEVELS {
         int id PK
         int level_number 
         string name 
+        int game_id FK
+    }
+    MAP ||--o{ NPCS : contains
+    MAP ||--o{ ENEMY : contains
+    MAP {
+        intid PK
+        int sizeCel 
+        string map_data 
+        int levels_id FK
+    }
+    NPCS {
+        int id PK
+        int mid 
+        bool kill 
+        int map_id FK
+    }
+    ENEMY||--o{ NPCS : contains
+    ENEMY {
+        int id PK
+        bool kill 
+        int mid 
+        int npc_id  FK
+    }
+    PLAYER ||--o{ NPCS : contains
+    PLAYER {
+        int id PK
+        bool status 
+        bool kill 
+        mid INT
+        npc_id INT FK
+    }
+    TEXTS {
+        int id PK
+        string font
+        string text 
         int game_id FK
     }
 ```
