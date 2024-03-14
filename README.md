@@ -433,9 +433,13 @@ sequenceDiagram
 # Other Sequenec Diagram in base from Teacher Sugestions
 ```mermaid
 sequenceDiagram
-  box Purple 6Alice & John
-    participant A
-    participant J
+  box Yellow Loops
+    participant Line1
+    participant Line2
+    participant Line3
+    participant Line4
+    participant Line5
+    participant Line6
   end
   box Another Group
     participant B
