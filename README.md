@@ -433,7 +433,7 @@ sequenceDiagram
 # Other Sequenec Diagram in base from Teacher Sugestions
 ```mermaid
 sequenceDiagram
-  box #DAF7A6 Loop
+  box Yellow Loop
     participiant Line1
     participiant Line2
     participiant Line3
