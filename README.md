@@ -339,6 +339,7 @@ classDiagram
 
 ```
 # Entity Relationship Diagram
+![Entity Relationship Diagram (MySQLWorkBench)](./Medias/DiagramadeMierda.jpg "Picture")
 ```mermaid
 erDiagram
     GAME ||--o{ LEVELS : contains
