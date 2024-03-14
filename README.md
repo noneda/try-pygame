@@ -433,15 +433,16 @@ sequenceDiagram
 # Other Sequenec Diagram in base from Teacher Sugestions
 ```mermaid
 sequenceDiagram
-box #DAF7A6 Loop
-participiant Line1
-participiant Line2
-participiant Line3
-participiant Line4
-participiant Line5
-participiant Line6
-participiant Line7
-participiant Line8
+  box #DAF7A6 Loop
+    participiant Line1
+    participiant Line2
+    participiant Line3
+    participiant Line4
+    participiant Line5
+    participiant Line6
+    participiant Line7
+    participiant Line8
+  end
 ```
 # More...
 ## How to Play
