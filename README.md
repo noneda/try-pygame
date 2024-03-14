@@ -430,18 +430,6 @@ sequenceDiagram
     end
 
 ```
-# Other Sequenec Diagram in base from Teacher Sugestions
-```mermaid
-sequenceDiagram
-  box Loops
-    participant Line1
-    participant Line2
-    participant Line3
-    participant Line4
-    participant Line5
-    participant Line6
-  end
-```
 # More...
 ## How to Play
 
