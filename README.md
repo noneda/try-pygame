@@ -433,7 +433,7 @@ sequenceDiagram
 # Other Sequenec Diagram in base from Teacher Sugestions
 ```mermaid
 sequenceDiagram
-  box #DAF7A6 Loops
+  box Loops
     participant Line1
     participant Line2
     participant Line3
@@ -441,15 +441,6 @@ sequenceDiagram
     participant Line5
     participant Line6
   end
-  box Another Group
-    participant B
-    participant C
-  end
-  A->>J: Hello John, how are you?
-  J->>A: Great!
-  A->>B: Hello Bob, how is Charley?
-  B->>C: Hello Charley, how are you?
-
 ```
 # More...
 ## How to Play
