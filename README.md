@@ -391,7 +391,7 @@ erDiagram
         int game_id FK
     }
 ```
-# diagram of sequence
+# Diagram of sequence
 ```mermaid
 sequenceDiagram
     participant Player

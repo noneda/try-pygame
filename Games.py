@@ -7,7 +7,7 @@ from Objects.Texts import Texts
 
 class game:
     running = True
-    level = 2
+    level = 0
     map = Levels()
     play = Player()
     evil = Enemy()
